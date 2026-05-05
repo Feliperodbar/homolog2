@@ -28,7 +28,33 @@ structured JSON format.
 
 ---
 
-## Requirements
+## Web Interface (Frontend)
+
+A modern web interface for capturing user interactions in real-time and generating tutorials:
+
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Start the Flask server
+python server.py
+
+# Open in browser
+# http://localhost:5000
+```
+
+The interface features:
+
+- **Real-time event recording** — Capture clicks, typing, navigation, scrolling
+- **Live preview** — See each event as it's captured
+- **Tutorial generation** — Convert events to step-by-step instructions
+- **Multiple modes** — AI-powered (GPT-4o) or offline heuristic mode
+- **Export** — Download events as JSON for analysis
+- **Responsive design** — Works on desktop, tablet, and mobile
+
+For detailed information about the frontend, see [frontend/README.md](frontend/README.md).
+
+---
 
 - Python ≥ 3.10
 - Dependencies listed in `requirements.txt`

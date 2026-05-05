@@ -1,0 +1,25 @@
+{
+  "name": "tutorial-generator-frontend",
+  "version": "1.0.0",
+  "description": "Frontend para Tutorial Generator - Converte ações do usuário em tutoriais",
+  "main": "app.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "dev": "npm run watch"
+  },
+  "keywords": [
+    "tutorial",
+    "generator",
+    "typescript",
+    "frontend"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "html2canvas": "^1.4.1"
+  }
+}

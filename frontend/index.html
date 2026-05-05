@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Generator - Gravador de Ações</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>📹 Tutorial Generator</h1>
+            <p class="subtitle">Converta suas ações em tutoriais passo-a-passo</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Seção de Controles -->
+            <section class="control-panel">
+                <div class="recording-indicator">
+                    <div id="recordingStatus" class="status-badge status-stopped">
+                        <span class="status-dot"></span>
+                        PARADO
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button id="startBtn" class="btn btn-primary" title="Iniciar gravação">
+                        ▶ Começar Gravação
+                    </button>
+                    <button id="stopBtn" class="btn btn-danger" disabled title="Parar gravação">
+                        ⏹ Parar Gravação
+                    </button>
+                    <button id="clearBtn" class="btn btn-secondary" title="Limpar eventos">
+                        🗑 Limpar Eventos
+                    </button>
+                </div>
+
+                <div class="info-panel">
+                    <div class="info-item">
+                        <span class="label">Eventos Capturados:</span>
+                        <span id="eventCount" class="value">0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Tempo de Gravação:</span>
+                        <span id="recordingTime" class="value">00:00:00</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Estados e Abas -->
+            <div class="tabs">
+                <button class="tab-button active" data-tab="events">📋 Eventos</button>
+                <button class="tab-button" data-tab="tutorial">📖 Tutorial</button>
+                <button class="tab-button" data-tab="settings">⚙️ Configurações</button>
+            </div>
+
+            <!-- Aba: Eventos -->
+            <section id="events-tab" class="tab-content active">
+                <div class="section-header">
+                    <h2>Eventos Capturados</h2>
+                    <button id="exportBtn" class="btn btn-small">💾 Exportar JSON</button>
+                </div>
+
+                <div id="eventsList" class="events-list">
+                    <div class="empty-state">
+                        <p>Nenhum evento capturado ainda.<br>Clique em "Começar Gravação" para iniciar.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Aba: Tutorial -->
+            <section id="tutorial-tab" class="tab-content">
+                <div class="section-header">
+                    <h2>Tutorial Gerado</h2>
+                    <button id="generateBtn" class="btn btn-primary">✨ Gerar Tutorial com IA</button>
+                    <button id="generateHeuristicBtn" class="btn btn-secondary">🔧 Gerar (Sem IA)</button>
+                </div>
+
+                <div id="tutorialContainer" class="tutorial-container">
+                    <div class="empty-state">
+                        <p>Nenhum tutorial gerado ainda.<br>Capture eventos e clique em "Gerar Tutorial".</p>
+                    </div>
+                </div>
+
+                <div id="loadingSpinner" class="loading-spinner hidden">
+                    <div class="spinner"></div>
+                    <p>Gerando tutorial...</p>
+                </div>
+
+                <div id="errorMessage" class="error-message hidden"></div>
+            </section>
+
+            <!-- Aba: Configurações -->
+            <section id="settings-tab" class="tab-content">
+                <div class="section-header">
+                    <h2>Configurações</h2>
+                </div>
+
+                <div class="settings-form">
+                    <div class="form-group">
+                        <label for="backendUrl">URL do Backend:</label>
+                        <input type="text" id="backendUrl" placeholder="http://localhost:5000" class="form-input">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="useAI">
+                            <input type="checkbox" id="useAI" checked>
+                            Usar IA (OpenAI)
+                        </label>
+                        <small>Requer OPENAI_API_KEY configurada no servidor</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="captureScreenshots">
+                            <input type="checkbox" id="captureScreenshots" checked>
+                            Capturar Screenshots
+                        </label>
+                        <small>Captura tela a cada ação (pode ser lento)</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="analyzeScreenshots">
+                            <input type="checkbox" id="analyzeScreenshots">
+                            Analisar Screenshots
+                        </label>
+                        <small>Usa IA para descrever os elementos visuais</small>
+                    </div>
+
+                    <button id="saveSettingsBtn" class="btn btn-primary">💾 Salvar Configurações</button>
+                </div>
+
+                <div class="info-section">
+                    <h3>Informações do Projeto</h3>
+                    <p><strong>Versão:</strong> 1.0.0</p>
+                    <p><strong>Descrição:</strong> Sistema de geração de tutoriais a partir de ações do usuário</p>
+                    <p><strong>Tecnologia:</strong> TypeScript + Python (Flask/FastAPI)</p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Tutorial Generator — Transforme ações em tutoriais 📚</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
