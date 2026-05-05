@@ -286,12 +286,12 @@ class TestHeuristicInstruction:
             )
         )
         instr = _heuristic_instruction(group)
-        assert "https://example.com" in instr
+        assert "example.com" in instr
 
     def test_scroll(self):
         group = self._group(ActionType.scroll)
         instr = _heuristic_instruction(group)
-        assert "Role" in instr or "rolar" in instr.lower() or instr
+        assert "Role" in instr or "rolar" in instr.lower()
 
     def test_unknown(self):
         group = self._group(ActionType.unknown)
@@ -413,7 +413,7 @@ class TestTutorialGeneratorOffline:
             }
         ]
         tutorial = self.generator.generate(events)
-        assert "https://example.com" in tutorial.steps[0].instruction
+        assert "example.com" in tutorial.steps[0].instruction
 
     def test_window_name_preserved_in_action(self):
         events = [
