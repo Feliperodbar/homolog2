@@ -195,7 +195,7 @@ class TutorialGenerator:
                 import openai  # noqa: PLC0415
 
                 self._client = openai.OpenAI(api_key=resolved_key)
-                logger.info("OpenAI client initialised (model=%s).", model)
+                logger.info("OpenAI client initialized (model=%s).", model)
             except ImportError:
                 logger.warning(
                     "openai package not installed. Falling back to offline mode."
