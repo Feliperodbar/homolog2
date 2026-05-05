@@ -286,7 +286,7 @@ class TestHeuristicInstruction:
             )
         )
         instr = _heuristic_instruction(group)
-        assert "example.com" in instr
+        assert instr == "Navegue até: https://example.com"
 
     def test_scroll(self):
         group = self._group(ActionType.scroll)
@@ -413,7 +413,8 @@ class TestTutorialGeneratorOffline:
             }
         ]
         tutorial = self.generator.generate(events)
-        assert "example.com" in tutorial.steps[0].instruction
+        step_instr = tutorial.steps[0].instruction
+        assert step_instr == "Navegue até: https://example.com"
 
     def test_window_name_preserved_in_action(self):
         events = [
