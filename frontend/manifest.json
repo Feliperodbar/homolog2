@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Tutorial Generator - Recorder",
+  "version": "1.0.0",
+  "description": "Grava ações do usuário e gera tutoriais — captura da janela real via getDisplayMedia",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Tutorial Generator"
+  },
+  "permissions": [
+    "activeTab"
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "host_permissions": []
+}

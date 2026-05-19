@@ -95,7 +95,7 @@ class TutorialGeneratorApp {
      * Configura event listeners
      */
     private setupEventListeners(): void {
-        this.startBtn.addEventListener("click", () => this.startRecording());
+        this.startBtn.addEventListener("click", async () => await this.startRecording());
         this.stopBtn.addEventListener("click", () => this.stopRecording());
         this.clearBtn.addEventListener("click", () => this.clearEvents());
         this.exportBtn.addEventListener("click", () => this.exportEvents());
@@ -143,8 +143,13 @@ class TutorialGeneratorApp {
     /**
      * Inicia a gravação
      */
-    private startRecording(): void {
-        this.recorder.startRecording();
+    private async startRecording(): Promise<void> {
+        try {
+            await this.recorder.startRecording();
+        } catch (err) {
+            console.warn("Não foi possível iniciar captura da tela:", err);
+        }
+
         this.recordingStartTime = Date.now();
         this.startBtn.disabled = true;
         this.stopBtn.disabled = false;

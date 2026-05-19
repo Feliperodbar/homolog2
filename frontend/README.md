@@ -198,6 +198,18 @@ O design segue a paleta de cores:
 
 ## 🐛 Troubleshooting
 
+## 🔌 Empacotar como Extensão (Chrome / Edge / Firefox)
+
+1. Abra o Chrome/Edge/Firefox e vá em `Extensões` -> `Carregar sem compactação` (ou `Load unpacked`).
+2. Aponte para a pasta `frontend/` deste repositório (contém `manifest.json`, `index.html`, `app.js`, etc.).
+3. Após carregar, clique no ícone da extensão para abrir o `popup` ou abra a página `index.html` da extensão em uma nova aba.
+4. Clique em "Começar Gravação" — o navegador pedirá permissão para compartilhar a tela/janela real. Selecione a janela que deseja capturar.
+
+Observações:
+
+- A captura da janela real é feita com `navigator.mediaDevices.getDisplayMedia`, compatível com Chrome, Edge e Firefox modernos.
+- Se o usuário negar a permissão, a gravação continuará sem screenshots.
+
 ### "Falha ao conectar ao backend"
 
 - Verifique se o servidor Flask está rodando
