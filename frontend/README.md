@@ -200,14 +200,16 @@ O design segue a paleta de cores:
 
 ## 🔌 Empacotar como Extensão (Chrome / Edge / Firefox)
 
-1. Abra o Chrome/Edge/Firefox e vá em `Extensões` -> `Carregar sem compactação` (ou `Load unpacked`).
-2. Aponte para a pasta `frontend/` deste repositório (contém `manifest.json`, `index.html`, `app.js`, etc.).
-3. Após carregar, clique no ícone da extensão para abrir o `popup` ou abra a página `index.html` da extensão em uma nova aba.
+1. Abra o Chrome, Edge ou Firefox e carregue a pasta `frontend/` como extensão sem compactação.
+2. No Firefox, use a tela de extensões do navegador e carregue a mesma pasta `frontend/` como extensão temporária.
+3. Clique no ícone da extensão para abrir o popup ou abra a página `index.html` da extensão em uma nova aba.
 4. Clique em "Começar Gravação" — o navegador pedirá permissão para compartilhar a tela/janela real. Selecione a janela que deseja capturar.
 
 Observações:
 
 - A captura da janela real é feita com `navigator.mediaDevices.getDisplayMedia`, compatível com Chrome, Edge e Firefox modernos.
+- O popup usa um script local externo, porque extensões MV3 bloqueiam script inline.
+- A captura de screenshots do DOM depende de empacotar `html2canvas` localmente; a extensão funciona sem CDN.
 - Se o usuário negar a permissão, a gravação continuará sem screenshots.
 
 ### "Falha ao conectar ao backend"

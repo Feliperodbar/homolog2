@@ -21,28 +21,7 @@
         <div id="status" class="popup-status"></div>
     </div>
 
-    <script>
-        document.getElementById('openApp')!.addEventListener('click', () => {
-            // Abre a página principal da aplicação (index.html) em nova aba
-            const url = chrome.runtime.getURL('index.html');
-            window.open(url, '_blank');
-        });
-
-        document.getElementById('startCapture')!.addEventListener('click', async () => {
-            const statusEl = document.getElementById('status')!;
-            statusEl.textContent = 'Solicitando permissão de captura...';
-
-            try {
-                // Solicita captura de tela diretamente. A captura será usada pela página aberta (se houver).
-                const stream = await (navigator.mediaDevices as any).getDisplayMedia({ video: true });
-                // Pausa o stream imediatamente porque o popup não exibe o vídeo.
-                stream.getTracks().forEach((t: MediaStreamTrack) => t.stop());
-                statusEl.textContent = 'Permissão concedida. Você pode abrir a aplicação completa para iniciar a gravação.';
-            } catch (err) {
-                statusEl.textContent = 'Permissão negada ou erro durante a captura.';
-            }
-        });
-    </script>
+    <script src="popup.js" defer></script>
 </body>
 
 </html>

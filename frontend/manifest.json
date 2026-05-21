@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Tutorial Generator - Recorder",
   "version": "1.0.0",
-  "description": "Grava ações do usuário e gera tutoriais — captura da janela real via getDisplayMedia",
+  "description": "Grava ações do usuário e gera tutoriais com suporte a Chrome, Edge e Firefox",
   "action": {
     "default_popup": "popup.html",
     "default_title": "Tutorial Generator"
@@ -10,10 +10,10 @@
   "permissions": [
     "activeTab"
   ],
-  "icons": {
-    "16": "icons/icon16.png",
-    "48": "icons/icon48.png",
-    "128": "icons/icon128.png"
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "tutorial-generator@homolog2.local"
+    }
   },
   "host_permissions": []
 }
